@@ -1,0 +1,18 @@
+# Never upload these (API keys)
+entsoe_api_key.txt
+.env
+
+# Virtual environment
+.venv/
+
+# Python cache files
+__pycache__/
+
+# Downloaded data and generated results (re-created by the scripts)
+data/
+outputs/
+
+# Local / editor files
+.claude/
+Deleted/
+instructions_*.docx

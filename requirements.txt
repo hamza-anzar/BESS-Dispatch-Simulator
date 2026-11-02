@@ -1,0 +1,11 @@
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+pulp
+highspy
+rainflow
+entsoe-py
+requests
+streamlit
