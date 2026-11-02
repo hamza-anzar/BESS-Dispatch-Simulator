@@ -18,25 +18,6 @@ Everything is wrapped in a Streamlit app where you can change the inputs, pick a
 
 ---
 
-## What the numbers say
-
-Backtest over 1,399 days (1 Jan 2023 to 30 Oct 2026, DE-LU day-ahead prices), with a 1 MW / 4 MWh battery at 200 €/kWh, 88 % round-trip efficiency and 3,000 cycles at 100 % depth of discharge. Solar and wind cases use a 2 MWp / 2 MW park on a 2 MW grid connection, with the battery allowed to charge only from the park.
-
-| Setup | Model | Battery profit | Wear (health) cost | Net profit | SoH lost |
-|---|---|---:|---:|---:|---:|
-| Grid | Naive | 405,314 € | 389,867 € | 15,447 € | 14.9 %-pts |
-| Grid | Degradation-aware | 304,641 € | 126,355 € | **178,287 €** | 8.3 %-pts |
-| Solar | Naive | 268,544 € | 164,650 € | 103,894 € | 9.2 %-pts |
-| Solar | Degradation-aware | 226,470 € | 95,906 € | **130,565 €** | 7.5 %-pts |
-| Wind | Naive | 219,649 € | 200,822 € | 18,827 € | 10.1 %-pts |
-| Wind | Degradation-aware | 155,921 € | 65,543 € | **90,378 €** | 6.7 %-pts |
-
-The naive battery always earns more cash on the market, because it trades almost every hour. But it burns through its own lifetime to do it. Once the wear is priced in, the degradation-aware battery comes out well ahead in every setup, and it ages roughly half as fast in the grid case.
-
-"Health cost" here is the share of the battery's useful life used up by cycling, valued at the replacement cost. Calendar aging (which happens even when the battery sits idle) is shown separately in the app and is not part of net profit.
-
----
-
 ## How it works
 
 **1. Battery wear.** Cycle life depends on how deep each cycle is (Wöhler curve):
