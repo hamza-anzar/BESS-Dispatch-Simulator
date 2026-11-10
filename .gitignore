@@ -8,8 +8,16 @@ entsoe_api_key.txt
 # Python cache files
 __pycache__/
 
-# Downloaded data and generated results (re-created by the scripts)
-data/
+# Downloaded data and generated results (re-created by the scripts).
+# Exception: a small snapshot of cleaned prices and the weather cache for the
+# default location is kept, so the online app works without downloading first.
+data/*
+!data/processed/
+data/processed/*
+!data/processed/prices_clean.csv
+!data/weather/
+data/weather/*
+!data/weather/nasa_51.16_10.45.csv
 outputs/
 
 # Local / editor files

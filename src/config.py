@@ -72,7 +72,11 @@ WIND_SHEAR_ALPHA = 0.143      # power-law exponent to scale 50 m wind to hub hei
 
 # ---------- 9. Helper: read the API key ----------
 def read_api_key():
-    """Read the ENTSO-E API key from entsoe_api_key.txt (project root)."""
+    """Read the ENTSO-E API key: environment variable ENTSOE_API_KEY (used on Render),
+    otherwise the file entsoe_api_key.txt in the project root."""
+    import os
+    if os.environ.get("ENTSOE_API_KEY", "").strip():
+        return os.environ["ENTSOE_API_KEY"].strip()
     if not API_KEY_FILE.exists():
         raise FileNotFoundError(f"API key file not found: {API_KEY_FILE}")
     key = API_KEY_FILE.read_text().strip()

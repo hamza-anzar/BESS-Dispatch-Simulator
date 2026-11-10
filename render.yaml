@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: bess-dispatch-optimizer
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      # Optional: only needed for the "Download from ENTSO-E" button in the app.
+      # Set the value in the Render dashboard (never commit the key).
+      - key: ENTSOE_API_KEY
+        sync: false

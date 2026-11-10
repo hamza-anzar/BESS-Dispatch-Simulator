@@ -63,8 +63,10 @@ def add_prices(start, end):
     Returns the new clean series (Berlin time)."""
     new = download_range(start, end)
     new.index = new.index.tz_convert("UTC")
-    if RAW_FILE.exists():
-        old = pd.read_csv(RAW_FILE, index_col=0)["price_eur_mwh"]
+    # Keep what we already have (raw file, or the clean file on a fresh deployment)
+    old_file = RAW_FILE if RAW_FILE.exists() else CLEAN_FILE if CLEAN_FILE.exists() else None
+    if old_file is not None:
+        old = pd.read_csv(old_file, index_col=0)["price_eur_mwh"]
         old.index = pd.to_datetime(old.index, utc=True)
         new = pd.concat([old, new])
     combined = new[~new.index.duplicated(keep="last")].sort_index()
