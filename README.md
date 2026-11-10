@@ -2,7 +2,7 @@
 
 A battery storage simulator for the German day-ahead power market that knows the battery wears out.
 
-**Live app:** [bess-dispatch-optimizer.onrender.com](https://bess-dispatch-optimizer.onrender.com) (free hosting, so the first load after a quiet period can take about a minute)
+**Live app:** [bess-dispatch-simulator.streamlit.app](https://bess-dispatch-simulator-xksrjovyts6kzxglgr2vwr.streamlit.app/) (free hosting: if the app has been asleep, click "Yes, get this app back up!" and give it about a minute)
 
 Most simple arbitrage models treat a battery as a free bucket: buy low, sell high, repeat as often as the prices allow. A real lithium-ion battery loses a bit of capacity with every cycle, and that lost capacity costs money. So a 20 €/MWh price spread can look profitable on paper and still lose money once you count the wear.
 
