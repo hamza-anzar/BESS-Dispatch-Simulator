@@ -2,6 +2,8 @@
 
 A battery storage simulator for the German day-ahead power market that knows the battery wears out.
 
+**Live app:** [bess-dispatch-optimizer.onrender.com](https://bess-dispatch-optimizer.onrender.com) (free hosting, so the first load after a quiet period can take about a minute)
+
 Most simple arbitrage models treat a battery as a free bucket: buy low, sell high, repeat as often as the prices allow. A real lithium-ion battery loses a bit of capacity with every cycle, and that lost capacity costs money. So a 20 €/MWh price spread can look profitable on paper and still lose money once you count the wear.
 
 This project puts that wear cost directly into the dispatch decision. Every day the optimizer looks at the 24 hourly prices and only charges or discharges when the spread is large enough to pay for the energy losses **and** the battery degradation. It then tracks the battery's State of Health day by day over several years and compares the result with a "naive" battery that ignores wear.
